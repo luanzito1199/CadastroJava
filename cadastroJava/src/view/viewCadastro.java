@@ -5,6 +5,9 @@
  */
 package view;
 
+import model.bean.Categoria;
+import model.dao.CategoriaDAO;
+
 /**
  *
  * @author Administrador
@@ -13,9 +16,17 @@ public class viewCadastro extends javax.swing.JFrame {
 
     /**
      * Creates new form viewCadastro
+     * metodo construtor
      */
     public viewCadastro() {
         initComponents();
+    }
+    private void preencherComboBoxCategorias(){
+        CategoriaDAO catDao = new CategoriaDAO();
+        for(Categoria cat : catDao.findAll()){
+            
+            jComboBoxCategorias.addItem(cat);
+        }
     }
 
     /**
